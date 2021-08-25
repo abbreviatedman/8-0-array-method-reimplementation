@@ -135,9 +135,32 @@
  * @param {Array[*]} array - an array of any kind of elements
  * @returns {Array[*]} returns a new array with the elements reversed.
  */
-function myReverseFunction() {
+ function myReverseFunction(array) {
+  //Soln 1
+  // let i = 0;
+  // while (i < array.length - 1) {
+  //   array.splice(i, 0, array.pop());
+  //   i++;
+  // }
+  // return array;
 
-}
+  //Soln 2
+  //Temporal storage
+  let temp;
+  //first index
+  let i = 0;
+  //last index
+  let end = array.length - 1;
+  while (i < end) {
+    temp = array[i];
+    array[i] = array[end];
+    array[end] = temp;
+    i++;
+    end--;
+
+
+    
+  }
 
 /**
  * Adds an element to the front of the array. Do not use the unshift method.
