@@ -118,8 +118,16 @@
  * @param {string} [separator] - an optional string to separate each pair of adjacent elements of the array. If no separator is specific the default separator should be a comma (",")
  * @returns {string} returns the concatenated string.
  */
-function myJoinFunction() {
-
+ function myJoinFunction(array, separator = ",") {
+  let str = "";
+  for (let i = 0; i < array.length; i++) {
+    if (i !== array.length - 1) {
+      str += array[i] + separator;
+    } else {
+      str += array[i];
+    }
+  }
+  return str;
 }
 
 /**
