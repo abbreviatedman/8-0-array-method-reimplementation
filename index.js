@@ -4,9 +4,14 @@
  * @param {Array[*]} element - an element of any kind.
  * @returns {number} the new length of the array.
  */
-
-function myPushFunction() {
-
+ function myPushFunction(array, ...elements) {
+  //const element = Array.from(arguments)
+  //for (const element of elements.slice(1))
+  for (const element of elements) {
+    array[array.length] = element;
+  }
+  
+  return array.length;
 }
 
 /**
@@ -14,8 +19,15 @@ function myPushFunction() {
  * @param {Array[*]} array - an array of any kind of elements.
  * @returns {*} - the removed element
  */
-function myPopFunction() {
+ function myPopFunction(array) {
+  if (array.length === 0) {
+    return undefined;
+  }
 
+  let removedElement = array[array.length - 1];
+  array.length = array.length - 1;
+
+  return removedElement;
 }
 
 /**
