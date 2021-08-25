@@ -74,9 +74,43 @@
  * @param {number} [endIdx] - an optional number representing the ending index of the extraction (non-inclusive). The endIdx can be negative.
  * @returns {Array[*]} returns a new array containing the extracted elements.
  */
-function mySliceFunction() {
+ function mySliceFunction(array, startIdx = 0, endIdx = array.length) {
+  // this takes care of the negative argument
+  if (startIdx < 0) {
+    startIdx = array.length + startIdx;
+  }
+  if (endIdx < 0) {
+    endIdx = array.length + endIdx;
+  }
 
+  if (endIdx > array.length) {
+    endIdx = array.length;
+  }
+
+  let newArray = [];
+  for (let i = startIdx; i < endIdx; i++) {
+    newArray[newArray.length] = array[i];
+    //newArray.push(array[i]);
+  }
+
+  return newArray;
+
+  // if(startIdx === undefined || endIdx === undefined){
+
+  //       newArr = array;
+
+  // }
+  // if (endIdx === undefined || endIdx > array.length) {
+  //   endIdx = array.length;
+  // }
+
+  // for (let i = startIdx; i < endIdx; i++) {
+  //   newArray.push(array[i]);
+  // }
+
+  // return newArray;
 }
+
 
 /**
  * Creates and returns a new string by concatenating all of the elements in an array, separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator. Do not use the join method.
