@@ -157,10 +157,10 @@
     array[end] = temp;
     i++;
     end--;
-
-
-    
+ 
   }
+  return array;
+}
 
 /**
  * Adds an element to the front of the array. Do not use the unshift method.
