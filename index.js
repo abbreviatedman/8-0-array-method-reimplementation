@@ -56,10 +56,17 @@
  * @param {number} [startIdx] - an optional index from which to start searching.
  * @returns {number} returns the index at which the searchElement is found, or -1 if it is not found.
  */
-function myIndexOfFunction() {
-
+ function myIndexOfFunction(array, searchElement, startdIdx = 0) {
+  if (startdIdx < 0) {
+    startdIdx = array.length + startdIdx;
+  }
+  for (let i = startdIdx; i < array.length; i++) {
+    if (array[i] === searchElement) {
+      return i;
+    }
+  }
+  return -1;
 }
-
 /**
  * Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified. Do not use the slice method.
  * @param {Array[*]} array - an array of any kind of elements.
