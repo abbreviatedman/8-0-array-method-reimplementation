@@ -168,19 +168,30 @@
  * @param {*} newElement - an element of any type to add to the front of the array.
  * @returns {number} returns the new length of the array.
  */
-function myUnshiftFunction() {
-
+ function myUnshiftFunction(array, ...elements) {
+  array.splice(0, 0, ...elements)
+  return array.length;
 }
+const numArr = [1, 2, 3, 4, 5];
+myUnshiftFunction(numArr, 6, 7, 8)
 
 /**
  * Removes the first element of the array and returns the removed element, or undefined if the array is empty. Do not use the shift method.
  * @param {Array[*]} array - an array of any kind of elements.
  * @returns {*} - the removed element
  */
-function myShiftFunction() {
-
+function myShiftFunction(array) {
+  let removedElement = undefined
+  for( let i = 0; i < array.length; i++){ 
+    if (i === 0) { 
+      removedElement =  array.splice(i, 1); 
+      removedElement = removedElement[0]
+    }
 }
-
+return removedElement;
+}
+const array1 = [1, 2, 3, 4, 5, 6];
+    myShiftFunction(array1);
 module.exports = {
   myPushFunction,
   myPopFunction,
