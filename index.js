@@ -37,8 +37,16 @@
  * @param {number} [startIdx] - an optional index from which to start searching.
  * @returns {boolean} returns true if the searchElement is found in the array and false if it is not.
  */
-function myIncludesFunction() {
-
+ function myIncludesFunction(array, searchElement, startdIdx = 0) {
+  if (startdIdx < 0) {
+    startdIdx = array.length + startdIdx;
+  }
+  for (let i = startdIdx; i < array.length; i++) {
+    if (array[i] === searchElement) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
